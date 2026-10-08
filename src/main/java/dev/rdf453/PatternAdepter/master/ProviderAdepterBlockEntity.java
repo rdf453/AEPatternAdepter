@@ -1,4 +1,4 @@
-package dev.rdf453.PatternBond.master;
+package dev.rdf453.PatternAdepter.master;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ import appeng.core.definitions.AEBlockEntities;
 import appeng.helpers.patternprovider.PatternProviderLogic;
 import appeng.util.inv.AppEngInternalInventory;
 import appeng.util.inv.CombinedInternalInventory;
-import dev.rdf453.PatternBond.dummy.DummyBlockEntity;
-import dev.rdf453.PatternBond.dummy.DummyLogic;
-import dev.rdf453.PatternBond.master.AdpeterLogic;
+import dev.rdf453.PatternAdepter.dummy.DummyBlockEntity;
+import dev.rdf453.PatternAdepter.dummy.DummyLogic;
+import dev.rdf453.PatternAdepter.master.AdpeterLogic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Registry;
@@ -146,14 +146,16 @@ public class ProviderAdepterBlockEntity extends PatternProviderBlockEntity {
                 InternalInventory source = origin.getLogic().getPatternInv();        
                 InternalInventory target =temp.getLogic().getPatternInv();       
                 nbtSave.put(pos.immutable(), saveProviderDada(origin));
-                
+                //더미 블엔 생성시 createLogic() level이 없어서 null 남
                 level.removeBlockEntity(pos);
+                level.setBlockEntity(temp);
+                
                 if(source instanceof AppEngInternalInventory sInv
                     && target instanceof AppEngInternalInventory tInv) {
                         tInv.fromItemContainerContents(sInv.toItemContainerContents());
                     }
                 
-                level.setBlockEntity(temp);
+                
                 
                 if (level.getBlockEntity(pos) instanceof DummyBlockEntity provider) {
                     inventories.add(provider.getLogic().getPatternInv());

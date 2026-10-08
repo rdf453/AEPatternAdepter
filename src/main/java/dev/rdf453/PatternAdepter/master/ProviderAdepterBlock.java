@@ -1,6 +1,6 @@
-package dev.rdf453.PatternBond.master;
+package dev.rdf453.PatternAdepter.master;
 
-import dev.rdf453.PatternBond.registry.Register;
+import dev.rdf453.PatternAdepter.registry.Register;
 import appeng.block.AEBaseEntityBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.state.BlockBehaviour;

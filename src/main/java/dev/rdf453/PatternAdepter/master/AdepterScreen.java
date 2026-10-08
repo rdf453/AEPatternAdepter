@@ -1,4 +1,4 @@
-package dev.rdf453.PatternBond.master;
+package dev.rdf453.PatternAdepter.master;
 
 import net.minecraft.network.chat.Component;
 

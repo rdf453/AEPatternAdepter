@@ -6,7 +6,7 @@
  * Modifications by [rdf453]
  */
 
-package dev.rdf453.PatternBond.master;
+package dev.rdf453.PatternAdepter.master;
 
 import java.util.HashMap;
 import java.util.List;
@@ -24,8 +24,8 @@ import appeng.api.stacks.KeyCounter;
 import appeng.helpers.patternprovider.PatternProviderLogic;
 import appeng.helpers.patternprovider.PatternProviderLogicHost;
 import appeng.util.inv.AppEngInternalInventory;
-import dev.rdf453.PatternBond.dummy.DummyLogic;
-import dev.rdf453.PatternBond.mixin.PatternLogicAccessor;
+import dev.rdf453.PatternAdepter.dummy.DummyLogic;
+import dev.rdf453.PatternAdepter.mixin.PatternLogicAccessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;

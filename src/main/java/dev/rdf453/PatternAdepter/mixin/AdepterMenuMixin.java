@@ -1,4 +1,4 @@
-package dev.rdf453.PatternBond.mixin;
+package dev.rdf453.PatternAdepter.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -7,9 +7,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import appeng.helpers.patternprovider.PatternContainer;
 import appeng.menu.implementations.PatternAccessTermMenu;
-import dev.rdf453.PatternBond.dummy.DummyBlockEntity;
-import dev.rdf453.PatternBond.master.AdepterMenu;
-import dev.rdf453.PatternBond.master.ProviderAdepterBlockEntity;
+import dev.rdf453.PatternAdepter.dummy.DummyBlockEntity;
+import dev.rdf453.PatternAdepter.master.AdepterMenu;
+import dev.rdf453.PatternAdepter.master.ProviderAdepterBlockEntity;
 
 @Mixin(PatternAccessTermMenu.class)
 public abstract class AdepterMenuMixin {

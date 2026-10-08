@@ -1,4 +1,4 @@
-package dev.rdf453.PatternBond.mixin;
+package dev.rdf453.PatternAdepter.mixin;
 
 import java.util.List;
 import java.util.Set;

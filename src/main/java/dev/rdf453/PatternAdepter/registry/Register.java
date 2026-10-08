@@ -1,4 +1,4 @@
-package dev.rdf453.PatternBond.registry;
+package dev.rdf453.PatternAdepter.registry;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;

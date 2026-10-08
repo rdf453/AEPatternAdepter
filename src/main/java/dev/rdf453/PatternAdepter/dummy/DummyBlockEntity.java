@@ -1,4 +1,4 @@
-package dev.rdf453.PatternBond.dummy;
+package dev.rdf453.PatternAdepter.dummy;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -12,7 +12,7 @@ import appeng.blockentity.crafting.PatternProviderBlockEntity;
 import appeng.core.definitions.AEBlockEntities;
 import appeng.helpers.patternprovider.PatternProviderLogic;
 import appeng.util.inv.AppEngInternalInventory;
-import dev.rdf453.PatternBond.master.ProviderAdepterBlockEntity;
+import dev.rdf453.PatternAdepter.master.ProviderAdepterBlockEntity;
 
 public class DummyBlockEntity extends PatternProviderBlockEntity {
     public BlockPos masterPos;
