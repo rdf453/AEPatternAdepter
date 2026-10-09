@@ -41,7 +41,7 @@ public class AdpeterLogic extends PatternProviderLogic {
 
     public AdpeterLogic(IManagedGridNode mainNode, PatternProviderLogicHost host, int patternInventorySize){
         //상수 초기화 직접 할것
-        super(mainNode, host,patternInventorySize);
+        super(mainNode, host,0);
         this.be = (ProviderAdepterBlockEntity)host.getBlockEntity();
     }
 

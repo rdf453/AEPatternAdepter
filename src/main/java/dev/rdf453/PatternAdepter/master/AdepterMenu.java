@@ -19,15 +19,15 @@ import net.minecraft.world.inventory.MenuType;
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
 public class AdepterMenu extends PatternAccessTermMenu {
-    private final IPatternAccessTermMenuHost host;
-    private PatternAccessTermMenu ac = (PatternAccessTermMenu) this;
-    public static final MenuType<AdepterMenu>  TYPE = MenuTypeBuilder.create(AdepterMenu::new, IPatternAccessTermMenuHost.class).build("adeptermenu");
+    public static final MenuType<AdepterMenu> TYPE = MenuTypeBuilder
+            .create(AdepterMenu::new, IPatternAccessTermMenuHost.class).build("adeptermenu");
 
     public AdepterMenu(MenuType<?> menuType, int id, Inventory inv, IPatternAccessTermMenuHost host,
             boolean bindInventory) {
         super(menuType, id, inv, host, true);
-        
+
     }
 
     public AdepterMenu(int id, Inventory ip, IPatternAccessTermMenuHost anchor) {
@@ -37,9 +37,9 @@ public class AdepterMenu extends PatternAccessTermMenu {
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU,
             AEPatternAdepter.MODID);
 
-    public static final DeferredHolder<MenuType<?>,MenuType<AdepterMenu>> ADEPTER_MENU = MENUS.register(
-        "ae_adepter_menu", 
-        () -> IMenuTypeExtension.create((id,inv,data) -> new AdepterMenu(id,inv,IPatternAccessTermMenuHost.class)));
-        //수정 필요
+    public static final DeferredHolder<MenuType<?>, MenuType<AdepterMenu>> ADEPTER_MENU = MENUS.register(
+            "ae_adepter_menu",
+            () -> TYPE);
+    
 }
 // https://github.com/AppliedEnergistics/Applied-Energistics-2/blob/main/src/main/java/appeng/menu/implementations/PatternAccessTermMenu.java

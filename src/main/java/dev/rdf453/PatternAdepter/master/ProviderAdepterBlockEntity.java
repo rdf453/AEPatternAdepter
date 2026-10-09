@@ -9,10 +9,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.jcraft.jorbis.Block;
+
 import appeng.api.inventories.InternalInventory;
 import appeng.blockentity.crafting.PatternProviderBlockEntity;
 import appeng.core.definitions.AEBlockEntities;
 import appeng.helpers.patternprovider.PatternProviderLogic;
+import appeng.menu.MenuOpener;
 import appeng.util.inv.AppEngInternalInventory;
 import appeng.util.inv.CombinedInternalInventory;
 import dev.rdf453.PatternAdepter.dummy.DummyBlockEntity;
@@ -24,6 +27,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.ProblemReporter;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -55,12 +59,13 @@ public class ProviderAdepterBlockEntity extends PatternProviderBlockEntity {
         return (PatternProviderBlockEntity)level.getBlockEntity(pos);
     }
 
-    // 주변 패턴제공자를 더미로 종속화
+    // 메뉴 연결
     @SubscribeEvent
     public void rightClick(PlayerInteractEvent.RightClickBlock e) {
-        
+        MenuOpener.open(AdepterMenu.ADEPTER_MENU.get(),e.getEntity() , this);
+        //수정 필요
     }
-
+    // 초기화
     @Override
     public void onLoad() {
         super.onLoad();
