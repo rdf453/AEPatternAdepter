@@ -9,7 +9,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 
 public class AdepterScreen extends PatternAccessTermScreen<AdepterMenu> {
-    //GuideME 의존성 설정 필요
+    
     public AdepterScreen(AdepterMenu menu, Inventory playerInventory, Component title, ScreenStyle style) {
         super(menu,playerInventory,title,style);
     }

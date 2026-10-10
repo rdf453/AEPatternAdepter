@@ -7,6 +7,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import appeng.api.inventories.InternalInventory;
 import appeng.blockentity.crafting.PatternProviderBlockEntity;
 import appeng.core.definitions.AEBlockEntities;
@@ -24,6 +26,12 @@ public class DummyBlockEntity extends PatternProviderBlockEntity {
         this.masterPos = masterPos;
         this.slotSize = slotSize;
         // 나중에 더미 블럭 엔티티 타입 생성해서 넣을것
+    }
+
+    @SubscribeEvent 
+    public void rightClick(PlayerInteractEvent.RightClickBlock e) {
+        level.getBlockEntity(masterPos).rightClick(e);
+        //마스터의 클릭을 호출 할 수 있게 바꾸기
     }
 
     public BlockPos worldPos() {
