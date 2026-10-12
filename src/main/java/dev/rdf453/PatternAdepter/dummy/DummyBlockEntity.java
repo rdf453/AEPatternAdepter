@@ -2,6 +2,7 @@ package dev.rdf453.PatternAdepter.dummy;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -28,10 +29,20 @@ public class DummyBlockEntity extends PatternProviderBlockEntity {
         // 나중에 더미 블럭 엔티티 타입 생성해서 넣을것
     }
 
-    @SubscribeEvent 
+    @SubscribeEvent
     public void rightClick(PlayerInteractEvent.RightClickBlock e) {
-        level.getBlockEntity(masterPos).rightClick(e);
-        //마스터의 클릭을 호출 할 수 있게 바꾸기
+        if ((e.getLevel() != null) && !isClientSide()) {
+
+            BlockEntity me = e.getLevel().getBlockEntity(masterPos);
+            // 마스터의 클릭을 호출 할 수 있게 바꾸기
+
+            if (me instanceof ProviderAdepterBlockEntity rEntity) {
+                rEntity.rightClick(e);
+                
+                e.setCanceled(true);
+                e.setCancellationResult(InteractionResult.SUCCESS);
+            }
+        }
     }
 
     public BlockPos worldPos() {
@@ -87,7 +98,6 @@ public class DummyBlockEntity extends PatternProviderBlockEntity {
     private CompoundTag loadCompoundTag(BlockPos pos) {
         return ProviderAdepterBlockEntity.nbtSave.get(pos);
     }
-    
-    
+
 }
 // 마스터 블럭에 의해서 생성 기존 제공자 블럭엔티티 대체 및 소멸시 기존 블럭 엔티티 생성

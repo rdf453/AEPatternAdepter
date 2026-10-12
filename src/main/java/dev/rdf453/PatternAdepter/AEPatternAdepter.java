@@ -7,4 +7,7 @@ import net.neoforged.fml.common.Mod;
 @Mod(AEPatternAdepter.MODID)
 public class AEPatternAdepter {
     public static final String MODID = "ae_provider_adepter";
+
+
+    //이벤트 등록 하쇼
 }

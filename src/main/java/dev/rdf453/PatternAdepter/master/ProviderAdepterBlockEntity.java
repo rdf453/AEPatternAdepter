@@ -4,14 +4,11 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import org.jetbrains.annotations.Nullable;
-
-import com.jcraft.jorbis.Block;
 
 import appeng.api.inventories.InternalInventory;
 import appeng.api.networking.IGridNode;
@@ -21,29 +18,21 @@ import appeng.blockentity.crafting.PatternProviderBlockEntity;
 import appeng.core.definitions.AEBlockEntities;
 import appeng.helpers.patternprovider.PatternProviderLogic;
 import appeng.menu.MenuOpener;
-import appeng.menu.locator.MenuHostLocator;
 import appeng.menu.locator.MenuLocators;
 import appeng.util.inv.AppEngInternalInventory;
 import appeng.util.inv.CombinedInternalInventory;
 import dev.rdf453.PatternAdepter.dummy.DummyBlockEntity;
-import dev.rdf453.PatternAdepter.dummy.DummyLogic;
-import dev.rdf453.PatternAdepter.master.AdpeterLogic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.ProblemReporter;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ProviderAdepterBlockEntity extends PatternProviderBlockEntity implements IPatternAccessTermMenuHost {
     public Map<BlockPos, Integer> SlotHashMap = new HashMap<>();
@@ -70,8 +59,9 @@ public class ProviderAdepterBlockEntity extends PatternProviderBlockEntity imple
     // 메뉴 연결 실패!!! 메뉴 호스트 타입 계약 맞추슈
     @SubscribeEvent
     public void rightClick(PlayerInteractEvent.RightClickBlock e) {
+        if(!e.getLevel().isClientSide()){
         MenuOpener.open(AdepterMenu.ADEPTER_MENU.get(), e.getEntity(), MenuLocators.forBlockEntity(this));
-        
+        }
     }
 
     // 초기화
