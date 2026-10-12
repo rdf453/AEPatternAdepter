@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -63,7 +62,7 @@ public class DummyBlockEntity extends PatternProviderBlockEntity {
         origin = loadCompoundTag(worldPosition);
         if (origin != null)
             data.store("OriginalProvider", CompoundTag.CODEC, origin);
-        data.putLong("MasterPos", masterPos.asLong());
+        data.store("MasterPos",BlockPos.CODEC,masterPos);
         data.putInt("SlotSize", slotSize);
         super.saveAdditional(data);
     }
@@ -71,7 +70,7 @@ public class DummyBlockEntity extends PatternProviderBlockEntity {
     @Override
     public void loadAdditional(ValueInput data) {
         this.origin = data.read("OriginalProvider", CompoundTag.CODEC).orElse(null);
-        this.masterPos = data.getLong("MasterPos").map(BlockPos::of).orElse(null);
+        this.masterPos = data.read("MasterPos", BlockPos.CODEC).orElse(BlockPos.ZERO);
         this.slotSize = data.getIntOr("SlotSize", 9);
         super.loadAdditional(data);
     }

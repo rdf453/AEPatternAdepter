@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "AAA",
+        "ABA",
+        "AAA"
+    ],
+    "key" : {
+        "A" :{"item":"ae2:blank_pattern"},
+        "B" :{"item":"ae2:pattern_provider"}
+    },
+    "result": {
+        "id": "ae2pa:pattern_provider_adepter",
+        "count": 1
+    }
+    
+}

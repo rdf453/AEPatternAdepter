@@ -8,17 +8,13 @@
 
 package dev.rdf453.PatternAdepter.master;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import javax.annotation.Nullable;
 
 import appeng.api.crafting.IPatternDetails;
 import appeng.api.crafting.PatternDetailsHelper;
 import appeng.api.inventories.InternalInventory;
 import appeng.api.networking.IManagedGridNode;
-import appeng.api.networking.crafting.ICraftingProvider;
 import appeng.api.stacks.GenericStack;
 import appeng.api.stacks.KeyCounter;
 import appeng.helpers.patternprovider.PatternProviderLogic;
@@ -30,16 +26,16 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 
-public class AdpeterLogic extends PatternProviderLogic {
+public class AdepterLogic extends PatternProviderLogic {
     public PatternLogicAccessor ac = (PatternLogicAccessor) this;
     private final ProviderAdepterBlockEntity be;
 
-    public AdpeterLogic(IManagedGridNode mainNode, PatternProviderLogicHost host) {
+    public AdepterLogic(IManagedGridNode mainNode, PatternProviderLogicHost host) {
         super(mainNode, host);
         this.be = (ProviderAdepterBlockEntity)host.getBlockEntity();
     }
 
-    public AdpeterLogic(IManagedGridNode mainNode, PatternProviderLogicHost host, int patternInventorySize){
+    public AdepterLogic(IManagedGridNode mainNode, PatternProviderLogicHost host, int patternInventorySize){
         //상수 초기화 직접 할것
         super(mainNode, host,0);
         this.be = (ProviderAdepterBlockEntity)host.getBlockEntity();

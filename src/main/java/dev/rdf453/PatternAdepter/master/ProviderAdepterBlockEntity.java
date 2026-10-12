@@ -49,7 +49,7 @@ public class ProviderAdepterBlockEntity extends PatternProviderBlockEntity imple
 
     @Override
     protected PatternProviderLogic createLogic() {
-        return new AdpeterLogic(this.getMainNode(), this);
+        return new AdepterLogic(this.getMainNode(), this);
     }
 
     public PatternProviderBlockEntity getDummy(BlockPos pos) {

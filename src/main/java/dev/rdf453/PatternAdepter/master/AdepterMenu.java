@@ -11,14 +11,10 @@ package dev.rdf453.PatternAdepter.master;
 import appeng.api.storage.IPatternAccessTermMenuHost;
 import appeng.menu.implementations.MenuTypeBuilder;
 import appeng.menu.implementations.PatternAccessTermMenu;
-import dev.rdf453.PatternAdepter.AEPatternAdepter;
-import dev.rdf453.PatternAdepter.mixin.PatternLogicAccessor;
-import net.minecraft.core.registries.Registries;
+import dev.rdf453.PatternAdepter.registry.Register;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.MenuType;
-import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class AdepterMenu extends PatternAccessTermMenu {
         public static final MenuType<AdepterMenu> TYPE = MenuTypeBuilder
@@ -34,10 +30,9 @@ public class AdepterMenu extends PatternAccessTermMenu {
                 this(TYPE, id, ip, anchor, true);
         }
 
-        public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU,
-                        AEPatternAdepter.MODID);
+        
 
-        public static final DeferredHolder<MenuType<?>, MenuType<AdepterMenu>> ADEPTER_MENU = MENUS.register(
+        public static final DeferredHolder<MenuType<?>, MenuType<AdepterMenu>> ADEPTER_MENU = Register.MENUS.register(
                         "ae_adepter_menu",
                         () -> TYPE);
 
